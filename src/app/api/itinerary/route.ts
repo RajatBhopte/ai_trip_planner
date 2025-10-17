@@ -113,7 +113,7 @@ export async function POST(req: NextRequest) {
           const plan =
             data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ||
             data?.candidates?.[0]?.content?.parts
-              ?.map((p: any) => p?.text)
+              ?.map((p: { text?: string }) => p?.text)
               .filter(Boolean)
               .join("\n");
           if (plan) {
